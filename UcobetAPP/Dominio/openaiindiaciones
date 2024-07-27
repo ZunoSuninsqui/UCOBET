@@ -1,0 +1,40 @@
+1. Definición de Clases y Objetos
+
+Clases principales
+Usuario: Para almacenar información del usuario (ID, nombre, correo, teléfono, celular).
+Apuesta: Para almacenar la información de cada apuesta (usuario, número apostado, cantidad apostada, tipo de apuesta).
+Sorteo: Para manejar los detalles del sorteo (ID, fecha y hora, números prohibidos, apuestas recibidas, incentivos, resultado).
+Historial: Para registrar el historial de apuestas y resultados de cada usuario.
+GestorSorteos: Para gestionar la creación y administración de los sorteos.
+
+2. Gestión de Usuarios
+
+Registro y Autenticación: Métodos para registrar nuevos usuarios y autenticarlos.
+Validación de Datos: Asegurarse de que los datos de contacto sean válidos.
+
+3. Gestión de Apuestas
+
+Registro de Apuestas: Métodos para que los usuarios puedan registrar sus apuestas.
+Validación de Apuestas: Verificar que las apuestas cumplan con las reglas (por ejemplo, no más de 5 minutos antes del sorteo, sin números prohibidos).
+Cálculo de Incentivos: Calcular incentivos en función de la cantidad apostada y el porcentaje de incentivo.
+
+4. Gestión de Sorteos
+
+Creación de Sorteos: Métodos para crear nuevos sorteos, incluyendo la configuración de números prohibidos y la cantidad a pagar por peso apostado.
+Ejecución de Sorteos: Método para ejecutar el sorteo y determinar los números ganadores.
+Distribución de Premios: Cálculo y distribución de los premios basados en las apuestas ganadoras.
+
+5. Historial y Reportes
+
+Historial de Apuestas: Mantener un registro del historial de apuestas de cada usuario.
+Reportes de Ganancias y Pagos: Generar reportes de los premios ganados y las cantidades a pagar.
+
+6. Interfaz de Usuario
+
+Consola o GUI: Implementar una interfaz de usuario donde los usuarios puedan registrarse, hacer apuestas y ver su historial.
+Notificaciones: Enviar notificaciones a los usuarios sobre los resultados de los sorteos y premios ganados.
+
+7. Reglas y Configuración
+
+Configuración Dinámica: Permitir la configuración de parámetros como incentivos, cantidad a pagar por peso apostado, y números prohibidos.
+Validaciones: Implementar todas las reglas del sistema (no límites monetarios, apuestas hasta 5 minutos antes del sorteo, ñapa, etc.).

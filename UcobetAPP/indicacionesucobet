@@ -1,0 +1,30 @@
+Uco bet
+La universidad va a hacer sorteos por números que se pueden comprar de 1 a 4 digitos
+Por cada peso apostado a un sorteo determinado se le da un incentivo a cada porcentaje ejemplo:
+mañana juegan 1000 con incentivo 30% se juega 1300 y eso se hace la paga
+
+Para 1 digitos 10 pesos por peso apostado
+Para 2 dígitos 15
+Para 3 dígitos 50
+Para 4 dígitos 10000
+
+El sorteo tendrá un plus del 10%
+ID NOMBRE CORREO TELEFONO CELULAR
+El sistema recibe pagos en efectivo
+Saber para que sorteo, sólo se permite jugar apuestas hasta 5 min antes de que se juegue el sorteo
+se puede configurar para un sorteo números prohibidos
+No hay límite monetario para apuesta
+
+Que necesita ver el usuario:
+Historial de juego con valor, veces acertadas
+
+Después de registrar el sorteo que se mire quienes ganaron con cuanto y cuando hay que pagar en premios,  además de la recaudación
+Pueden haber incentivos de un porcentaje personalizable
+
+Reglas generales
+-No hay limite monetario para la apuesta
+-Se puede jugar hasta 5 minutos antes del sorteo
+-Se puede dar ñapa (incentivo)
+-Configurar cuanto se paga por peso apostado
+-Pueden haber tantos sorteos cómo sea posible
+-No se pueden hacer sorteos el mismo día y misma hora
