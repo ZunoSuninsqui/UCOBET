@@ -53,7 +53,10 @@ public class HistorialBase {
     }
     public void mostrarSorteos(){
         if (!this.historialSorteo.isEmpty()){
+            int i = 1;
             for(Sorteo sor : this.historialSorteo){
+                System.out.println(i);
+                i++;
                 System.out.println("ID : " + sor.getId());
                 System.out.println("Número Ganador : " + sor.getNumeroGanador());
                 System.out.println("Hora de juego : " + sor.getHoraJuego());

@@ -72,6 +72,12 @@ public class Sorteo {
             }
         }
     }
+    public void mostrarApuestasTotales(){
+        for (Apuesta ap : apuestasRecibidas){
+            System.out.println();
+        }
+
+    }
 
     public double estimarRecaudo() {
        return apuestasRecibidas.stream()

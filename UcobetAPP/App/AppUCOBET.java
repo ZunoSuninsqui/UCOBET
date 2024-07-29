@@ -28,7 +28,7 @@ public class AppUCOBET {
 
         // Crear y finalizar algunos sorteos de ejemplo
         Sorteo sorteo1 = new Sorteo(123, Arrays.asList("Ganador 1", "Ganador 2"),
-                LocalDateTime.of(LocalDate.of(2024,07,29),
+                LocalDateTime.of(LocalDate.of(2024,7,29),
                         LocalTime.of(18,0)),0.1);
         sorteo1.finalizar();
         historialSorteo.addSorteo(sorteo1);
@@ -43,6 +43,7 @@ public class AppUCOBET {
         int opcion;
 
         do {
+            clearConsole();
             System.out.println("Menú:");
             System.out.println("1. Mostrar historial sorteos");
             System.out.println("2. Salir");
@@ -52,6 +53,18 @@ public class AppUCOBET {
             switch (opcion) {
                 case 1:
                     historialSorteo.mostrarSorteos();
+                    System.out.println("¿Examinar sorteo especifico?");
+                    int examinar;
+                    System.out.println("1. Si");
+                    System.out.println("2. No");
+                    examinar = scanner.nextInt();
+                    if (examinar == 1){
+                        System.out.println("ID del sorteo a examinar : ");
+                        int idExaminar;
+                        idExaminar = scanner.nextInt();
+
+                    }
+                    pause(scanner);
                     break;
                 case 2:
                     System.out.println("Saliendo del programa...");
@@ -64,5 +77,19 @@ public class AppUCOBET {
         scanner.close();
 
 
+    }
+    public static void clearConsole() {
+        for (int i = 0; i < 50; i++) {
+            System.out.println();
+        }
+    }
+    public static void pause(Scanner scanner) {
+        System.out.println("Presiona Enter para continuar...");
+        try {
+            scanner.nextLine(); // Consumir cualquier entrada previa
+            scanner.nextLine(); // Esperar a que el usuario presione Enter
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
