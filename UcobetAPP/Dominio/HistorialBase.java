@@ -1,8 +1,14 @@
 package UcobetAPP.Dominio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HistorialBase {
+
+
+
+
+
     /*
     Para El historial propondría 1 lista solamente de sorteos
     el admin podrá acceder a los sorteos, el mayor problema es establecer una relación
@@ -33,11 +39,34 @@ public class HistorialBase {
     2.2. Usuario---Lista de sorteos donde participó --- lista de apuestas que hizo por el mismo sorteo
 
      */
-    private int id;
-    private List<Apuesta> apuestas;
 
-    public void AgregarApuesta(int id, String numeroApostado, long cantidadApostada, String tipo){
-        //Apuesta Apuesta = new Apuesta(id, cantidadApostada, numeroApostado, tipo);
-        //apuestas.add(Apuesta);
+
+
+
+
+    private int id;
+    private List<Sorteo> historialSorteo;
+
+    public HistorialBase(){
+        this.historialSorteo = new ArrayList<Sorteo>();
+
     }
-}
+    public void mostrarSorteos(){
+        if (!this.historialSorteo.isEmpty()){
+            for(Sorteo sor : this.historialSorteo){
+                System.out.println("ID : " + sor.getId());
+                System.out.println("Número Ganador : " + sor.getNumeroGanador());
+                System.out.println("Hora de juego : " + sor.getHoraJuego());
+                System.out.println("Recaudo  : "+ sor.getRecaudo());
+                System.out.println("-----------------------------------------");
+            }
+        } else{
+            System.out.println("Lista Vacía");
+        }
+
+    }
+    public void addSorteo(Sorteo sorteoNuevo){
+        this.historialSorteo.add(sorteoNuevo);
+    }
+
+    }

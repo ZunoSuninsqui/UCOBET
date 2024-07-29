@@ -14,6 +14,8 @@ public class Sorteo {
     private double recaudo;
     private String numeroGanador;
     private double incentivo;
+    private List<Apuesta> apuestasGanadoras;
+    private boolean finalizado;
 
     public Sorteo(int id, List<String> numerosProhibidos,LocalDateTime horaJuego, double incentivo) {
         this.id = id;
@@ -22,6 +24,7 @@ public class Sorteo {
         this.apuestasRecibidas = new ArrayList<>();
         this.incentivo = incentivo;
         this.recaudo = 0;
+        this.finalizado = false;
     }
 
     public void agregarApuesta(Apuesta apuesta) {
@@ -62,6 +65,7 @@ public class Sorteo {
 
         for (Apuesta apuesta : apuestasRecibidas) {
             if (apuesta.getNumeroApostado().equals(numeroGanador)) {
+                apuestasGanadoras.add(apuesta);
                 double premio = ((apuesta.getCantidadApostada()  + (apuesta.getCantidadApostada() * incentivo))* 10000);
                 System.out.println("Premio ganado por " + apuesta.getUsuario().getNombre() + " es de: " + premio + " pesos.");
                 estimarRecaudo();
@@ -74,6 +78,8 @@ public class Sorteo {
                .mapToDouble(Apuesta::getCantidadApostada)
                .sum();
     }
+
+    public void finalizar(){this.finalizado = true;}
 
     public int getId() {
         return id;
@@ -125,6 +131,14 @@ public class Sorteo {
 
     public void setRecuado(long recaudo) {
         this.recaudo = recaudo;
+    }
+
+    public List<Apuesta> getApuestasGanadoras() {
+        return apuestasGanadoras;
+    }
+
+    public double getIncentivo() {
+        return incentivo;
     }
 }
 
