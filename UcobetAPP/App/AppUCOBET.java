@@ -27,17 +27,15 @@ public class AppUCOBET {
 
 
         // Crear y finalizar algunos sorteos de ejemplo
-        Sorteo sorteo1 = new Sorteo(123, Arrays.asList("Ganador 1", "Ganador 2"),
+        historialSorteo.addSorteo(123, Arrays.asList("2876", "4734"),
                 LocalDateTime.of(LocalDate.of(2024,7,29),
                         LocalTime.of(18,0)),0.1);
-        sorteo1.finalizar();
-        historialSorteo.addSorteo(sorteo1);
 
-        Sorteo sorteo2 = new Sorteo(456, Arrays.asList("Ganador 3", "Ganador 4"),
+        historialSorteo.addSorteo(456, Arrays.asList("3785", "4856"),
                 LocalDateTime.of(LocalDate.of(2024,7,29),
-                LocalTime.of(18,0)),0.1);
-        sorteo2.finalizar();
-        historialSorteo.addSorteo(sorteo2);
+                        LocalTime.of(18,0)),0.1);
+
+
 
         Scanner scanner = new Scanner(System.in);
         int opcion;
@@ -45,7 +43,7 @@ public class AppUCOBET {
         do {
             clearConsole();
             System.out.println("Menú:");
-            System.out.println("1. Mostrar historial sorteos");
+            System.out.println("1. Mostrar Sorteos");
             System.out.println("2. Salir");
             System.out.print("Elige una opción: ");
             opcion = scanner.nextInt();
@@ -62,6 +60,18 @@ public class AppUCOBET {
                         System.out.println("ID del sorteo a examinar : ");
                         int idExaminar;
                         idExaminar = scanner.nextInt();
+                        scanner.nextLine();
+                        historialSorteo.mostrarSorteoEspecifico(idExaminar);
+                        System.out.println("1. Definir numero ganador" );
+                        System.out.println("2. Cambiar hora de juego");
+                        int menu3;
+                        menu3 = scanner.nextInt();
+                        switch (menu3) {
+                            case 1:
+                                System.out.println("Escriba el número ganador: ");
+                                String numGanador = scanner.next();
+                                historialSorteo.getSorteo(idExaminar).setNumeroGanador(numGanador);
+                        }
 
                     }
                     pause(scanner);

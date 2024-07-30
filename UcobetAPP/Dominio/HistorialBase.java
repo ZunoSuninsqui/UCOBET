@@ -1,5 +1,6 @@
 package UcobetAPP.Dominio;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,8 +69,31 @@ public class HistorialBase {
         }
 
     }
-    public void addSorteo(Sorteo sorteoNuevo){
+    public void addSorteo(int id, List<String> numerosProhibidos, LocalDateTime horaJuego, double incentivo){
+        Sorteo sorteoNuevo = new Sorteo(id,numerosProhibidos,horaJuego,incentivo);
         this.historialSorteo.add(sorteoNuevo);
+    }
+
+    public void mostrarSorteoEspecifico(int id){
+        for (Sorteo sorteo : this.historialSorteo){
+            if (sorteo.getId() == id){
+                System.out.println("ID : " + sorteo.getId());
+                System.out.println("Número Ganador : " + sorteo.getNumeroGanador());
+                System.out.println("Hora de juego : " + sorteo.getHoraJuego());
+                System.out.println("Recaudo  : "+ sorteo.getRecaudo());
+                System.out.println("-----------------------------------------");
+
+            }
+        }
+
+    }
+    public Sorteo getSorteo(int id){
+        for (Sorteo sorteo : this.historialSorteo){
+            if (sorteo.getId() == id){
+                return sorteo;
+            }
+        }
+        return null;
     }
 
     }
