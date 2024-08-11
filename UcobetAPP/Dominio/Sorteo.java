@@ -16,7 +16,7 @@ public class Sorteo {
     private double incentivo;
     private List<Apuesta> apuestasGanadoras;
     private boolean finalizado;
-
+    
     public Sorteo(int id, List<String> numerosProhibidos,LocalDateTime horaJuego, double incentivo) {
         this.id = id;
         this.horaJuego = horaJuego;
