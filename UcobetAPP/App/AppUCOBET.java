@@ -9,8 +9,11 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class AppUCOBET {
@@ -65,7 +68,73 @@ public class AppUCOBET {
                     switch (opcionAdmin) {
 
                         case '1':
+                            System.out.println("Crear Sorteo:");
 
+                            int idSorteo;
+                            while (true) {
+                                System.out.print("Ingrese el ID del sorteo: ");
+                                String idInput = scanner.nextLine();
+                                if (idInput.matches("\\d+")) { // Verifica que solo contenga dígitos
+                                    idSorteo = Integer.parseInt(idInput);
+                                    break;
+                                } else {
+                                    System.out.println("Ingrese un valor válido.");
+                                }
+                            }
+
+                            List<String> numerosProhibidos = new ArrayList<>();
+                            char agregarNumero;
+                            do {
+                                System.out.print("¿Desea añadir un número prohibido? (s/n): ");
+                                agregarNumero = scanner.next().charAt(0);
+                                scanner.nextLine(); // Limpia el buffer
+                                if (agregarNumero == 's' || agregarNumero == 'S') {
+                                    while (true) {
+                                        System.out.print("Ingrese el número prohibido (máximo 4 dígitos): ");
+                                        String numeroProhibido = scanner.nextLine();
+                                        if (numeroProhibido.matches("\\d{1,4}")) { // Verifica que el número tenga entre 1 y 4 dígitos
+                                            numerosProhibidos.add(numeroProhibido);
+                                            break;
+                                        } else {
+                                            System.out.println("Ingrese un valor válido.");
+                                        }
+                                    }
+                                }
+                            } while (agregarNumero == 's' || agregarNumero == 'S');
+
+                            LocalDateTime horaJuego;
+                            while (true) {
+                                try {
+                                    System.out.print("Ingrese la fecha y hora del juego (dd-MM-yyyy HH:mm): ");
+                                    String fechaInput = scanner.nextLine();
+                                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+                                    horaJuego = LocalDateTime.parse(fechaInput, formatter);
+                                    break;
+                                } catch (DateTimeParseException e) {
+                                    System.out.println("Ingrese un valor válido.");
+                                }
+                            }
+
+                            double incentivo = 0.0;
+                            System.out.print("Ingrese el incentivo en porcentaje (0-100) o presione Enter para omitir: ");
+                            String incentivoInput = scanner.nextLine();
+                            if (!incentivoInput.isEmpty()) {
+                                try {
+                                    double porcentaje = Double.parseDouble(incentivoInput);
+                                    if (porcentaje >= 0 && porcentaje <= 100) {
+                                        incentivo = porcentaje / 100;
+                                    } else {
+                                        System.out.println("Ingrese un valor válido.");
+                                    }
+                                } catch (NumberFormatException e) {
+                                    System.out.println("Ingrese un valor válido.");
+                                }
+                            }
+
+                            // Crear el sorteo con los datos ingresados
+                            Sorteo nuevoSorteo = new Sorteo(idSorteo, numerosProhibidos, horaJuego, incentivo);
+                            System.out.println("Sorteo creado exitosamente.");
+                            pause(scanner);
                             break;
                         case '2':
                             boolean opcionExaminarValida = true;
