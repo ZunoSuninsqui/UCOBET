@@ -60,8 +60,7 @@ public class AppUCOBET {
                     System.out.println("Menú:");
                     System.out.println("1. Crear Sorteo");
                     System.out.println("2. Mostrar Sorteos");
-                    System.out.println("1. Mostrar Sorteos");
-                    System.out.println("2. Volver");
+                    System.out.println("3. Volver");
                     System.out.print("Elige una opción: ");
                     char opcionAdmin = scanner.next().charAt(0);
                     scanner.nextLine();
@@ -69,6 +68,7 @@ public class AppUCOBET {
 
                         case '1':
                             System.out.println("Crear Sorteo:");
+
 
                             int idSorteo;
                             while (true) {
@@ -81,7 +81,7 @@ public class AppUCOBET {
                                     System.out.println("Ingrese un valor válido.");
                                 }
                             }
-
+                            //Aquí pedir el número ganador  431   < - 3 for(i=3;i=0; i--){ if !equals return false else { string '' concat  = 1, retornar string cantidad contada de digitos
                             List<String> numerosProhibidos = new ArrayList<>();
                             char agregarNumero;
                             do {
@@ -101,7 +101,6 @@ public class AppUCOBET {
                                     }
                                 }
                             } while (agregarNumero == 's' || agregarNumero == 'S');
-
                             LocalDateTime horaJuego;
                             while (true) {
                                 try {
@@ -131,8 +130,9 @@ public class AppUCOBET {
                                 }
                             }
 
-                            // Crear el sorteo con los datos ingresados
-                            Sorteo nuevoSorteo = new Sorteo(idSorteo, numerosProhibidos, horaJuego, incentivo);
+                            // Crear el sorteo con los datos ingresado
+
+                            historialSorteo.addSorteo(idSorteo, numerosProhibidos, horaJuego, incentivo);
                             System.out.println("Sorteo creado exitosamente.");
                             pause(scanner);
                             break;
